@@ -8,7 +8,6 @@ const TaskCreator = ({createNewTask}) => {
     
     e.preventDefault(); // Nos cancela el por defecto que tienen los formularios de refrecar la pagina al darles enter.
     createNewTask(newTaskName);
-    localStorage.setItem("tasks", newTaskName);
     setNewTaskName("");// Con esto vacio al darle enter o click, el input se limpia.
   }
 

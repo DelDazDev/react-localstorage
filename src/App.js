@@ -3,6 +3,7 @@ import './App.css';
 import TaskCreator from "./components/TaskCreator";
 import { TaskTable } from "./components/TaskTable";
 import { VisibilityControl } from "./components/VisibilityControl";
+import { Container } from "./components/Container";
 
 
 function App() {
@@ -45,30 +46,33 @@ function App() {
   }, [tasksItem])
 
   return (
-    <div className="App">
-      <TaskCreator
-        createNewTask={createNewTask}
-      />
-      <TaskTable
-        tasks={tasksItem}
-        toggleTask={toggleTask}
-      />
-      <VisibilityControl
-        isChecked={showcompleted}
-        setShowCompleted={(checked) => setShowCompleted(checked)}
-        cleanTasks={cleanTasks}
-      />
-      {
-        showcompleted === true && (
-          <TaskTable
-            tasks={tasksItem}
-            toggleTask={toggleTask}
-            showCompleted={showcompleted}
-          />
-        )
-      }
+    <main className="bg-dark vh-100 text-white">
+      <Container>
+        <TaskCreator
+          createNewTask={createNewTask}
+        />
+        <TaskTable
+          tasks={tasksItem}
+          toggleTask={toggleTask}
+        />
+        <VisibilityControl
+          isChecked={showcompleted}
+          setShowCompleted={(checked) => setShowCompleted(checked)}
+          cleanTasks={cleanTasks}
+        />
+        {
+          showcompleted === true && (
+            <TaskTable
+              tasks={tasksItem}
+              toggleTask={toggleTask}
+              showCompleted={showcompleted}
+            />
+          )
+        }
+      </Container>
 
-    </div>
+
+    </main>
   );
 }
 
